@@ -6,36 +6,51 @@ import {
   UilSun,
   UilSunset,
 } from "@iconscout/react-unicons";
+import { iconUrlFromCode, localTime } from "../Utils/WeatherApi";
 
-function Details() {
+function Details({
+  weather: {
+    details,
+    icon,
+    temp,
+    temp_min,
+    temp_max,
+    sunrise,
+    sunset,
+    speed,
+    humidity,
+    feels_like,
+    timezone,
+  },
+}) {
   return (
     <div>
       <div className="flex items-center justify-center py-6 text-xl text-cyan-300">
-        <p>Cloudy</p>
+        <p>{details}</p>
       </div>
 
       <div className="flex flex-row items-center justify-between text-white py-3">
         <img
-          src="http://openweathermap.org/img/wn/01d@2x.png"
-          alt="sunny"
+          src={iconUrlFromCode(icon)}
+          alt=""
           className="w-20"
         />
-        <p className="text-5xl">30</p>
+        <p className="text-5xl">{temp}°</p>
         <div className="flex flex-col space-y-2">
           <div className="flex font-light text-sm items-center justify-center">
             <UilTemperature size={18} className="mr-1" />
             Feels like:
-            <span className="font-medium ml-1">32</span>
+            <span className="font-medium ml-1">{feels_like}°</span>
           </div>
           <div className="flex font-light text-sm items-center justify-center">
             <UilTear size={18} className="mr-1" />
             Humidity
-            <span className="font-medium ml-1">32%</span>
+            <span className="font-medium ml-1">{humidity}%</span>
           </div>
           <div className="flex font-light text-sm items-center justify-center">
             <UilWind size={18} className="mr-1" />
             Wind:
-            <span className="font-medium ml-1">11 MPH</span>
+            <span className="font-medium ml-1">{speed} MPH</span>
           </div>
         </div>
       </div>
@@ -44,24 +59,24 @@ function Details() {
         <UilSun />
         <p className="font-light">
           Rise:
-          <span className="font-medium ml-1">6:00 AM</span>
+          <span className="font-medium ml-1">{localTime(sunrise, timezone, 'hh:mm a')}</span>
         </p>
         <p className="font-light">|</p>
         <UilSunset />
         <p className="font-light">
           Rise:
-          <span className="font-medium ml-1">6:00 PM</span>
+          <span className="font-medium ml-1">{localTime(sunset, timezone, 'hh:mm a')}</span>
         </p>
         <p className="font-light">|</p>
         <UilSun />
         <p className="font-light">
           High:
-          <span className="font-medium ml-1">65</span>
+          <span className="font-medium ml-1">{temp_max}°</span>
         </p>
         <UilSun />
         <p className="font-light">
           Low:
-          <span className="font-medium ml-1">32</span>
+          <span className="font-medium ml-1">{temp_min}°</span>
         </p>
       </div>
     </div>
