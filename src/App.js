@@ -11,7 +11,7 @@ import getWeatherData from "./Utils/WeatherApi";
 
 function App() {
   const [query, setQuery] = useState({ q: "New York" });
-  const [units, setUnits] = useState("metric");
+  const [units, setUnits] = useState("imperial");
   const [weather, setWeather] = useState(null);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ function App() {
 
   const formatBackground = () => {
     if (!weather) return "from-cyan-700 to-blue-700";
-    const threshold = units === "imperial" ? 10 : 50;
+    const threshold = units === "metric" ? 20 : 60;
     if (weather.temp <= threshold) return "from-cyan-700 to-blue-700";
 
     return "from-yellow-700 to-orange-700";
