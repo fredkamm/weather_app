@@ -64,22 +64,23 @@ const formatForecastWeather = (data) => {
   return { timezone, daily, hourly };
 };
 
-const getFormattedWeatherData = async (searchParams) => {
-  const formattedCurrentWeather = await weatherData(
+const getWeatherData = async (searchParams) => {
+
+  const currentWeather = await weatherData(
     "weather",
     searchParams
   ).then(formatCurrentWeather);
 
-  const { lat, lon } = formattedCurrentWeather;
+  const { lat, lon } = currentWeather;
 
-  const formattedForecastWeather = await weatherData("onecall", {
+  const forecastWeather = await weatherData("onecall", {
     lat,
     lon,
     exclude: "current, minutely, alerts",
     units: searchParams.units,
   }).then(formatForecastWeather);
 
-  return { ...formattedCurrentWeather, ...formattedForecastWeather };
+  return { ...currentWeather, ...forecastWeather };
 };
 
 const localTime = (
@@ -91,6 +92,6 @@ const localTime = (
 const iconUrlFromCode = (code) =>
   `http://openweathermap.org/img/wn/${code}@2x.png`;
 
-export default getFormattedWeatherData;
+export default getWeatherData;
 
 export { localTime, iconUrlFromCode };
