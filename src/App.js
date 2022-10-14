@@ -3,6 +3,7 @@ import TopButton from './components/TopButton'
 import Inputs from './components/Inputs'
 import TimeLocation from './components/TimeLocation'
 import Details from './components/Details'
+import Forecast from './components/Forecast'
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <Inputs />
       <TimeLocation />
       <Details />
-      
+      <Forecast title='Hourly'/>
+      <Forecast title='5-Day'/>
     </div>
   );
 }
