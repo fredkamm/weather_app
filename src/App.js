@@ -5,12 +5,12 @@ import TimeLocation from './components/TimeLocation'
 import Details from './components/Details'
 import Forecast from './components/Forecast'
 
-import weatherData from './Utils/WeatherApi'
+import getFormattedWeatherData from './Utils/WeatherApi'
 
 function App() {
 
   const fetchWeather = async () => {
-    const data = await weatherData('weather', {q: 'New York'});
+    const data = await getFormattedWeatherData({q: 'New York'});
     console.log(data);
   }
   fetchWeather();
