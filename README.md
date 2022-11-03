@@ -12,7 +12,7 @@ I always wanted to improve on my react skills while also learning a new framewor
 # Usage
 <div>
     <p>
-        The best way to get use this app is through a web browser. It is still a work in progress with getting the app to be fully mobile responsive on any device
+        The best way to use this app is through a web browser. It is still a work in progress with getting the app to be fully mobile responsive on any device
     </p>
 </div>
 <div>
