@@ -33,7 +33,7 @@ function App() {
 
   return ( 
     <div
-      className={`px-4 sm:px-20 mx-auto py-5 bg-gradient-to-br h-fit shadow-xl shadow-gray-400 ${formatBackground()} `}
+      className={`px-4 sm:px-20 mx-auto py-5 bg-gradient-to-br h-fit shadow-xl shadow-gray-400 ${formatBackground()} xl:px-80 `}
     >
       <TopButton setQuery={setQuery} />
       <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
