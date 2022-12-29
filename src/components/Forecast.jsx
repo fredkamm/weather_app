@@ -13,7 +13,7 @@ function Forecast({ title, items }) {
         {items.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center"
+            className="flex flex-col items-center justify-center sm:justify-between"
           >
             <p className="font-light text-sm">{item.title}</p>
             <img

@@ -29,28 +29,38 @@ function Details({
         <p>{details}</p>
       </div>
 
-      <div className="flex flex-row items-center justify-between text-white py-3">
-        <img
-          src={iconUrlFromCode(icon)}
-          alt=""
-          className="w-20"
-        />
+      <div className="flex flex-row items-center justify-around text-white py-3">
+        <img src={iconUrlFromCode(icon)} alt="" className="w-20" />
         <p className="text-5xl">{temp.toFixed()}°</p>
         <div className="flex flex-col space-y-2">
-          <div className="flex font-light text-sm items-center justify-center">
+          <div className="flex font-light text-sm items-center justify-start">
             <UilTemperature size={18} className="mr-1" />
             Feels like:
             <span className="font-medium ml-1">{feels_like.toFixed()}°</span>
           </div>
-          <div className="flex font-light text-sm items-center justify-center">
+          <div className="flex font-light text-sm items-center justify-start">
             <UilTear size={18} className="mr-1" />
             Humidity:
             <span className="font-medium ml-1">{humidity.toFixed()}%</span>
           </div>
-          <div className="flex font-light text-sm items-center justify-center">
+          <div className="flex font-light text-sm items-center justify-start">
             <UilWind size={18} className="mr-1" />
             Wind:
             <span className="font-medium ml-1">{speed.toFixed()} MPH</span>
+          </div>
+          <div className="flex font-light text-sm items-center justify-start">
+            <UilSun />
+            <p className="font-light">
+              High:
+              <span className="font-medium ml-1">{temp_max.toFixed()}°</span>
+            </p>
+          </div>
+          <div className="flex font-light text-sm items-center justify-start">
+            <UilSun />
+            <p className="font-light">
+              Low:
+              <span className="font-medium ml-1">{temp_min.toFixed()}°</span>
+            </p>
           </div>
         </div>
       </div>
@@ -59,24 +69,17 @@ function Details({
         <UilSun />
         <p className="font-light">
           Rise:
-          <span className="font-medium ml-1">{localTime(sunrise, timezone, 'hh:mm a')}</span>
+          <span className="font-medium ml-1">
+            {localTime(sunrise, timezone, "hh:mm a")}
+          </span>
         </p>
         <p className="font-light">|</p>
         <UilSunset />
         <p className="font-light">
           Rise:
-          <span className="font-medium ml-1">{localTime(sunset, timezone, 'hh:mm a')}</span>
-        </p>
-        <p className="font-light">|</p>
-        <UilSun />
-        <p className="font-light">
-          High:
-          <span className="font-medium ml-1">{temp_max.toFixed()}°</span>
-        </p>
-        <UilSun />
-        <p className="font-light">
-          Low:
-          <span className="font-medium ml-1">{temp_min.toFixed()}°</span>
+          <span className="font-medium ml-1">
+            {localTime(sunset, timezone, "hh:mm a")}
+          </span>
         </p>
       </div>
     </div>

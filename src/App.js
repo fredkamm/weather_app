@@ -31,9 +31,9 @@ function App() {
     return "from-yellow-700 to-orange-700";
   };
 
-  return (
+  return ( 
     <div
-      className={`mx-auto mt-4 py-5 px-32 bg-gradient-to-br  h-fit shadow-xl shadow-gray-400 ${formatBackground()}`}
+      className={`px-4 sm:px-20 mx-auto py-5 bg-gradient-to-br h-fit shadow-xl shadow-gray-400 ${formatBackground()} `}
     >
       <TopButton setQuery={setQuery} />
       <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
