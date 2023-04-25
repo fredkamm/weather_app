@@ -16,7 +16,7 @@ I always wanted to improve on my react skills while also learning a new framewor
     </p>
 </div>
 <div>
-    <a href="https://fredkammweatherapp.netlify.app/">
+    <a href="https://fredsweather.netlify.app/">
         Click here to visit my app!
     </a>
 </div>
